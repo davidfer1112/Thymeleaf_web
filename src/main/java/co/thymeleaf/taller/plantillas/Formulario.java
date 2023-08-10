@@ -11,12 +11,37 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("/plantillas")
+@RequestMapping("/")
 public class Formulario {
 
-	 @GetMapping("/los-pipol-template-model-and-view")
-     public ModelAndView losPipolTemplateModelAndView() {
-         return new ModelAndView("los-pipol-template-model-and-view");
-     }
+    @GetMapping("/objetivoPrincipal")
+	public ModelAndView objetivoPrincipal() {
+		return new ModelAndView("objetivoPrincipal");
+	}
 
+    @GetMapping("/usuarios")
+	public ModelAndView usuarios() {
+		return new ModelAndView("usuarios");
+	}
+
+	@GetMapping("/requerimientosFuncionales")
+	public ModelAndView requerimientosFuncionales() {
+		return new ModelAndView("requerimientosFuncionales");
+	}
+
+	@GetMapping("/requerimientosNoFuncionales")
+	public ModelAndView requerimientosNoFuncionales() {
+		return new ModelAndView("requerimientosNoFuncionales");
+	}
+
+	@GetMapping("/arquitecturaGeneral")
+	public ModelAndView arquitecturaGeneral() {
+		return new ModelAndView("arquitecturaGeneral");
+	}
+
+	@GetMapping("/infraestructura")
+	public ModelAndView infraestructura() {
+		return new ModelAndView("infraestructura");
+	}
+	
 }

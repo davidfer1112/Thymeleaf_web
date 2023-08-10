@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Infraestructura</title>
+    <link rel="stylesheet" href="./styles/requerimientosFuncionales.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="menu">
+        <ul class="ulnav">
+            <li class="linav"><a class="active" href="/">&iacute;ndice</a></li>
+            <li class="linav"><a class href="/arquitecturaGeneral">anterior</a></li>
+        </ul>
+    </nav><br><br>
+    
+    <h1 class="titulos">
+        <center>6. Infraestructura</center>
+    </h1><br>
+
+    <div class="contprin">
+        <p>
+            Actualmente se tienen dividida en dos la infraestructura, (1) la principal que es
+            donde se está respondiendo a las peticiones que se realiza día a día y (2) una
+            replica que se sincroniza en tres horarios diferentes día a día. A pesar que la alta
+            disponibilidad no es uno de los requerimientos dado que las apps funcionan sin
+            red, tener una replica nos da la posibilidad de tener una rápida y fácil reacción en
+            caso de una falla.
+            La infraestructura está contratada con servidores dedicados con la empresa OVH y
+            están los principales están en Canada, los secundarios están en Francia. Estos
+            servidores están virtualizados con KVM y tiene como sistema operativo LINUX
+            UBUNTU 18.04.
+        </p>
+    </div><br><br>
+
+    <h1 class="titulos"><center>Formulario</center></h1>
+  <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" oninput="verificarCaracteres(this)" placeholder="Introduce tu nombre">
+      <p id="errorNombre" class="error"></p>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" oninput="verificarCaracteres(this)" placeholder="Introduce tu apellido">
+      <p id="errorApellido" class="error"></p>
+
+      <label for="fecha">Fecha de nacimiento:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" oninput="verificarEdad(this)" placeholder="Indica tu edad en números enteros">
+      <p id="errorEdad" class="error"></p>
+
+      <input type="submit" value="Enviar">
+  </form>
+
+  <script src="./js/formulario.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+.tabla{
+    border-collapse: collapse;
+    
+}
+
+.fil{
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.conttable{
+    padding-left: 7%;
+    padding-right: 7%;
+}

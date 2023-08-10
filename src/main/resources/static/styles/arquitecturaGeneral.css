@@ -1,0 +1,17 @@
+.contimg{
+    display: flex;
+    align-items: center;
+}
+
+.contimg img{
+    max-width: 200px;
+    margin-right: 20px;
+    padding-left: 5%;
+}
+
+.contimg blockquote{
+    flex: 1;
+    align-items: center;
+    margin-bottom: 5%;
+    padding-right: 5%;
+}

@@ -1,10 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+  <title>Taller HTM,CSS,JS</title>
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Prueba taller</h1>
+  <h1 class="titulos"> INDICE</h1>
+  
+  <ol>
+    <li>
+      <a href="/objetivoPrincipal"> Objetivo principal </a><br><br>
+    </li>
+    <li>
+      <a href="/usuarios"> Usuarios </a><br><br>
+    </li>
+    <li>
+      <a href="/requerimientosFuncionales"> Modulos y requerimentos funcionales </a><br><br>
+      <ol>
+        <li><a href="/requerimientosFuncionales#m31"> Informaci&oacute;n b&aacute;sica</a></li><br>
+        <li><a href="/requerimientosFuncionales#m32"> Producci&oacute;n</a></li><br>
+        <li><a href="/requerimientosFuncionales#m33">Reproducci&oacute;n</a></li><br>
+        <li><a href="/requerimientosFuncionales#m34"> Alimentaci&oacute;n</a></li><br>
+        <li><a href="/requerimientosFuncionales#m35"> Sanitario</a></li><br>
+        <li><a href="/requerimientosFuncionales#m36"> Reporte trabajo diario</a></li><br>
+      </ol>
+    </li>
+    <li>
+      <a href="/requerimientosNoFuncionales"> Requerimientos no funcionales </a><br><br>
+      <ol>
+        <li><a href="/requerimientosNoFuncionales#S1">Aplicación movil (online/offline)</a></li><br>
+        <li><a href="/requerimientosNoFuncionales#S2">Aplicación web</a></li><br>
+      </ol>
+    </li>
+    <li>
+      <a href="/arquitecturaGeneral"> Arquitectura general </a><br><br>
+      <ol>
+        <li><a href="/arquitecturaGeneral#S1">Capa 1: Datos</a></li><br>
+        <li><a href="/arquitecturaGeneral#S2">Capa 2: Lógica de negocio</a></li><br>
+        <li><a href="/arquitecturaGeneral#S3">Capa 3: Conectividad cliente final</a></li><br>
+        <li>
+          <a href="/arquitecturaGeneral#S4">Capa 4: Visualización</a><br><br>
+          <ol>
+            <li><a href="/arquitecturaGeneral#S41">App móvil</a></li><br>
+            <li><a href="/arquitecturaGeneral#S42">Aplicación web USUARIO</a></li><br>
+            <li><a href="/arquitecturaGeneral#S43">Aplicación web ADMINISTRADOR</a></li><br>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>
+      <a href="/infraestructura"> Infraestructura </a>
+    </li>
+  </ol><br><br>
+
+  <h1 class="titulos"><center>Formulario</center></h1>
+  <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" oninput="verificarCaracteres(this)" placeholder="Introduce tu nombre">
+      <p id="errorNombre" class="error"></p>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" oninput="verificarCaracteres(this)" placeholder="Introduce tu apellido">
+      <p id="errorApellido" class="error"></p>
+
+      <label for="fecha">Fecha de nacimiento:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" oninput="verificarEdad(this)" placeholder="Indica tu edad en números enteros">
+      <p id="errorEdad" class="error"></p>
+
+      <input type="submit" value="Enviar">
+  </form>
+
+  <script src='js/formulario.js'></script>
+
 </body>
 </html>

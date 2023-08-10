@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Objetivo principal</title>
+  <link rel="stylesheet" href="./styles/objetivoPrincipal.css">
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="menu">
+    <ul class="ulnav">
+      <li class="linav"><a class="active" href="/">&iacute;ndice</a></li>
+      <li style="float: right" class="linav"><a href="/usuarios">siguiente</a></li>
+    </ul>
+  </nav><br><br>
+
+  <h1 id="Objetivo-principal" class="titulos">
+    <center>1. Objetivo principal</center>
+  </h1><br>
+  <p>
+    AGRODAT es una plataforma que tiene como principal objetivo organizar la
+    toma y procesamiento de la información que se genera en las fincas de los
+    hatos ganaderos cuya especialización es de leche.
+  </p><br><br>
+
+  <h1 class="titulos"><center>Formulario</center></h1>
+  <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" oninput="verificarCaracteres(this)" placeholder="Introduce tu nombre">
+      <p id="errorNombre" class="error"></p>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" oninput="verificarCaracteres(this)" placeholder="Introduce tu apellido">
+      <p id="errorApellido" class="error"></p>
+
+      <label for="fecha">Fecha de nacimiento:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" oninput="verificarEdad(this)" placeholder="Indica tu edad en números enteros">
+      <p id="errorEdad" class="error"></p>
+
+      <input type="submit" value="Enviar">
+  </form>
+
+  <script src="./js/formulario.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>requerimentosFuncionales</title>
+    <link rel="stylesheet" href="./styles/requerimientosFuncionales.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="menu">
+        <ul class="ulnav">
+            <li class = "linav"><a class = "active" href="/">&iacute;ndice</a></li>
+            <li style="float: right" class="linav"><a href="/requerimientosNoFuncionales">siguiente</a></li>
+            <li class="linav"><a class href="/usuarios">anterior</a></li>
+        </ul>
+    </nav><br><br>
+
+    
+
+    <h1 id="m3" class="titulos">
+        <center>3. M&oacute;dulos y requerimientos funcionales</center>
+    </h1><br>
+
+
+    <div class="contprin">
+
+        <h2 id="m31" class="titulos">3.1. Informaci&oacute;n b&aacute;sica</h2>
+        <blockquote>La plataforma permite el ingreso, edición y eliminación de información
+                    básica como las vacas y fincas.
+        </blockquote><br>
+
+        <h2 id="m32" class="titulos">3.2. Producci&oacute;n</h2>
+        <blockquote>Esté es el módulo donde el usuario una vez ingrese los pesajes diarios tanto
+                    de la finca como individual por vaca; una vez se ingresa esta información la
+                    aplicación deberá entregar indicadores como pesaje desde el último parto y
+                    gráficas (1) Producción promedio por vaca por litros por día, (2) litros por
+                    hectárea año, (3) litros/trabajador/día.
+        </blockquote><br>
+
+        <h2 id="m33" class="titulos">3.3. Reproducción</h2>
+        <blockquote>Los usuarios en este módulo ingresan la información reproductiva como los
+                    servicios, los diagnósticos de preñez, la terminación del estado de preñez;
+                    con esta información la plataforma calculará indicadores como:
+        </blockquote>
+        <div class="subin">
+            <ul>
+                <li class="liindex">cantidad de partos,</li>
+                <li class="liindex">fecha del último parto,</li>
+                <li class="liindex">días de gestación,</li>
+                <li class="liindex">Días en leche</li>
+                <li class="liindex">Días abiertos</li>
+                <li class="liindex">Intervalo promedio entre partos</li>
+                <li class="liindex">servicios promedios por concepción</li>
+            </ul>
+        </div>
+        <blockquote>La aplicación generará notificaciones, es decir, le deberá avisar en la fecha
+                    que se debe realizar las actividades (1) servicio, (2) examinar preñez, (3)
+                    reconfirmar preñez, (4) secado, (5) preparto, (6) evaluación condición
+                    corporal, (7) Siguiente servicio, (8) Observar calor.
+        </blockquote><br>
+
+        <h2 id="m34" class="titulos">3.4. Alimentación</h2>
+        <blockquote>La aplicación una vez se le ingresa el pesaje, la aplicación le calcula los datos
+                    de alimentación como (1) relación, (2) cantidad de concentrado Alto, (3)
+                    Bajo y la cantidad.
+        </blockquote><br>
+
+        <h2 id="m35" class="titulos">3.5. Sanitario</h2>
+        <blockquote>Los usuarios podrán ingresar información sobre vacunación y enfermedades
+                    de las vacas. En caso de que la vaca deba ser retirada del hato, se ingresa la
+                    fecha de reintegro, la aplicación le notifica el día que lo debe realizar.
+        </blockquote><br>
+
+        <h2 id="m36" class="titulos">3.6. Reporte trabajo diario</h2>
+    <blockquote>Los usuarios en la finca podrán revisar las tareas diarias que deben realizar,
+        además de notificar la finalización. Diariamente la aplicación genera un
+        correo al administrador donde revisa las tareas diarias que realizaron y las
+        que no se han terminado.</blockquote>
+    </div><br><br>
+
+    <h1 class="titulos"><center>Formulario</center></h1>
+  <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" oninput="verificarCaracteres(this)" placeholder="Introduce tu nombre">
+      <p id="errorNombre" class="error"></p>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" oninput="verificarCaracteres(this)" placeholder="Introduce tu apellido">
+      <p id="errorApellido" class="error"></p>
+
+      <label for="fecha">Fecha de nacimiento:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" oninput="verificarEdad(this)" placeholder="Indica tu edad en números enteros">
+      <p id="errorEdad" class="error"></p>
+
+      <input type="submit" value="Enviar">
+  </form>
+
+  <script src="./js/formulario.js"></script>
+
+</body>
+
+</html>

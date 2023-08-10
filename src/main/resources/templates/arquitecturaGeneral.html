@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Arquitectura General</title>
+  <link rel="stylesheet" href="./styles/arquitecturaGeneral.css">
+  <link rel="stylesheet" href="./styles/requerimientosFuncionales.css">
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="menu">
+    <ul class="ulnav">
+      <li class = "linav"><a class = "active" href="/">&iacute;ndice</a></li>
+      <li style="float: right" class="linav"><a href="/infraestructura">siguiente</a></li>
+      <li class="linav"><a class href="/requerimientosNoFuncionales">anterior</a></li>
+    </ul>
+  </nav><br><br>
+
+  <h1 class="titulos">
+    <center>5. Arquitectura General</center>
+  </h1>
+
+  <div class="contprin">
+
+    <h2 class="titulos">Tabla de Contenido</h2>
+    <ol>
+      <li class="liindex"><a href="#S1">Capa 1: Datos</a></li><br>
+      <li class="liindex"><a href="#S2">Capa 2: L&oacutegica de negocio</a></li><br>
+      <li class="liindex"><a href="#S3">Capa 3: Conectividad cliente final</a></li><br>
+      <li class="liindex"><a href="#S4">Capa 4: Visualizaci&oacuten</a></li><br>
+      <ul>
+        <li class="liindex"><a href="#S41">Capa 1: Datos</a></li><br>
+        <li class="liindex"><a href="#S42">Capa 2: L&oacute;gica de negocio</a></li><br>
+        <li class="liindex"><a href="#S43">Capa 3: Conectividad cliente final</a></li><br>
+      </ul>
+    </ol>
+
+    <h2 class="titulos">Informaci&oacute;n</h2>
+    <blockquote>
+                Dados los requerimientos funcionales y no funcionales la arquitectura
+                general de la aplicaci&oacuten es la siguiente:
+    </blockquote>
+    <center><img src="./images/5imagen1.png" width="600" height="400"  alt="imagen1"/></center><br>
+
+    <h2 id="S1" class="titulos">5.1. Capa 1: Datos</h2>
+    <blockquote>
+                La capa de datos es donde se realiza la persistencia “oficial” de los
+                datos generados desde las diferentes vistas, esto quiere decir que hay
+                informaci&oacuten que persiste en las diferentes vistas por el requerimiento
+                particular de poder funcionar “offline”, sin embargo, toda la informaci&oacuten
+                se debe sincronizar y los datos finales son los que est&aacuten en la base de
+                datos. La aplicaci&oacuten guarda la informaci&oacuten en una base de datos,
+                particularmente MySQL 8.0.23. En la base de datos no se realiza ninguna
+                l&oacutegica, es decir, no hay procedimientos almacenados; la base de datos se
+                utiliza para realizar las consultas eficientes y como se mencion&oacute
+                anteriormente para su guardado
+    </blockquote><br>
+
+    <h2 id="S2" class="titulos">5.2. Capa 2: L&oacutegica de negocio</h2>
+    <blockquote>
+                Aqu&iacute se realiza toda la l&oacutegica de negocio, toda la informaci&oacuten que env&iacutean
+                las diferentes vistas se procesa aqu&iacute con dos objetivos (1) enviarla a las
+                diferentes vistas para su sincronizaci&oacuten, (2) tener la data procesada para
+                mostrar de forma eficiente indicadores.
+    </blockquote>
+
+    <div class="contimg">
+      <img src="./images/5imagen2.png" width="152.5" height="182.5 " style="margin: 10px 10px 10px 0px; float: left" alt="imagen2"/>
+      <blockquote>
+                  Tal como se muestra en la figura la l&oacutegica se realiza en POJO´s (Portable
+                  Old Java Objects) y se utiliza el patr&oacuten VO/DAO, la l&oacutegica de persistencia
+                  y consulta est&aacute en los DAO´s; los objetos DAO´s son los &uacutenicos que tienen
+                  la posibilidad y obligaci&oacuten de comunicaci&oacuten con la base de datos. Los VO
+                  son los encargados de saber que hacer con la informaci&oacuten que llega y que
+                  se consulta, son las clases “inteligentes” que saben como procesar toda la
+                  informaci&oacuten.
+      </blockquote>
+    </div><br>
+    
+    <h2 id="S3" class="titulos">5.3. Capa 3: Conectividad cliente final</h2>
+    <blockquote>
+                A esta capa se le conoce en diferentes arquitecturas como la API. Est&aacute
+                capa el principal objetivo es exponer la informaci&oacuten de manera segura en
+                un lenguaje que entiendan las vistas. En particular para AGRODAT se
+                realizaron unos Servlets que exponen informaci&oacuten en lenguaje JSON, se
+                utiliza como servidor de aplicaciones TOMCAT versi&oacuten 9, pero funciona
+                desde la versi&oacuten 8.
+    </blockquote><br>
+
+    <h2 id="S4" class="titulos">5.4. Capa 4: Visualizaci&oacuten</h2>
+    <blockquote>
+                Las visualizaciones son las responsables de consultar la informaci&oacuten de la
+                capa de conectividad, adem&aacutes de renderizar la visualizaci&oacuten. Aqu&iacute se
+                proponen tres vistas diferentes (1) App m&oacutevil, (2) App web, (3) App web
+                administraci&oacuten:
+    </blockquote><br>
+
+    <div class="subin">
+      <h3 id="S41" class="titulos">5.4.1. App m&oacutevil</h3>
+      <blockquote>
+                  La app m&oacutevil es una vista cuyo principal objetivo es la toma de
+                  informaci&oacuten y como se ha mencionado anteriormente debe funcionar sin red o
+                  con red. El requerimiento de funcionamiento fuera de l&iacutenea implica que se
+                  debe darle responsabilidad de guardado de informaci&oacuten y de realizar
+                  c&aacutelculos, es decir replicar la l&oacutegica de negocio. Para el desarrollo se
+                  utiliz&oacute como framework APACHE CORDOVA, lo que permiti&oacute desarrollar la app
+                  para iOS y Android en lenguajes css, html y javascript y tener un solo
+                  desarrollo para los dos sistemas operativos.
+      </blockquote><br>
+
+      <h3 id="S42" class="titulos">5.4.2. Aplicaci&oacuten web USUARIO</h3>
+      <blockquote>
+                  Los usuarios, particularmente, los administradores tienen una vista donde
+                  pueden ver la informaci&oacuten que se genera en las fincas, adem&aacutes de
+                  generaci&oacuten de informes que permiten el an&aacutelisis mas en detalle de la
+                  informaci&oacuten. Esta vista est&aacute desarrollada en REACT lo que le da la
+                  responsabilidad a los browser la renderizaci&oacuten de las diferentes vistas
+                  que tiene la aplicaci&oacuten.
+      </blockquote><br>
+
+      <h3 id="S43" class="titulos">5.4.3. Aplicaci&oacuten web ADMINISTRADOR</h3>
+      <blockquote>
+                  Es la vista donde los usuarios administradores podr&aacuten tener diferentes
+                  herramientas para dar soporte a los diferentes usuarios. Al igual que la
+                  vista web usuario, esta vista est&aacute desarrollada en REACT lo que le da la
+                  responsabilidad a los browser la renderizaci&oacuten de las diferentes vistas
+                  que tiene la aplicaci&oacuten.
+      </blockquote>
+    </div>
+    
+  </div><br><br>
+
+  <h1 class="titulos"><center>Formulario</center></h1>
+  <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" oninput="verificarCaracteres(this)" placeholder="Introduce tu nombre">
+      <p id="errorNombre" class="error"></p>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" oninput="verificarCaracteres(this)" placeholder="Introduce tu apellido">
+      <p id="errorApellido" class="error"></p>
+
+      <label for="fecha">Fecha de nacimiento:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" oninput="verificarEdad(this)" placeholder="Indica tu edad en números enteros">
+      <p id="errorEdad" class="error"></p>
+
+      <input type="submit" value="Enviar">
+  </form>
+
+  <script src="./js/formulario.js"></script>
+
+  
+</body>
+
+</html>
