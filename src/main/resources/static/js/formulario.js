@@ -1,7 +1,5 @@
 //funcion de verificacion caracteres nombre
 
-console.log("hola como estas el dia de hoy, yo muy bien bb")
-
 function verificarCaracteres(entrada) {
 
     let tipodato = entrada.name;

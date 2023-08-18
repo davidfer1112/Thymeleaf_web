@@ -11,8 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/vistas")
 public class Formulario {
+
 
     @GetMapping("/objetivoPrincipal")
 	public ModelAndView objetivoPrincipal() {
