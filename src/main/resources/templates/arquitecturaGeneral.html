@@ -11,8 +11,8 @@
 <nav class="menu">
     <ul class="ulnav">
         <li class="linav"><a class="active" href="/">&iacute;ndice</a></li>
-        <li style="float: right" class="linav"><a href="/infraestructura">siguiente</a></li>
-        <li class="linav"><a class href="/requerimientosNoFuncionales">anterior</a></li>
+        <li style="float: right" class="linav"><a th:href="@{/vistas/infraestructura}">siguiente</a></li>
+        <li class="linav"><a class th:href="@{/vistas/requerimientosNoFuncionales}">anterior</a></li>
     </ul>
 </nav>
 <br><br>
@@ -175,7 +175,7 @@
     </ul>
 
 
-<script src="./js/formulario.js"></script>
+    <script th:src="@{/js/formulario.js}"></script>
 
 
 </body>

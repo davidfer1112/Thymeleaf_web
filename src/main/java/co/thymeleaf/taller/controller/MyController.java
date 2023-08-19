@@ -85,4 +85,18 @@ public class MyController {
         return "infraestructura";
     }
 
+    @PostMapping("/imprimir-formulario-usuarios")
+    // El nombre de los atributos está dado por el nombre que se asigna desde el HTML
+    public String imprimirDatos5(Model model, @RequestParam String nombre, String apellido, String fecha, String edad ) {
+        Collection<String> persona = new ArrayList<String>();
+
+        persona.add(nombre);
+        persona.add(apellido);
+        persona.add(edad);
+        persona.add(fecha);
+
+        model.addAttribute("FormInfo", persona);
+        return "usuarios";
+    }
+
 }

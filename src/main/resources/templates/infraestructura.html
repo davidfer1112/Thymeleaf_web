@@ -11,7 +11,7 @@
 <nav class="menu">
     <ul class="ulnav">
         <li class="linav"><a class="active" href="/">&iacute;ndice</a></li>
-        <li class="linav"><a class href="/arquitecturaGeneral">anterior</a></li>
+        <li class="linav"><a class th:href="@{/vistas/arquitecturaGeneral}">anterior</a></li>
     </ul>
 </nav>
 <br><br>
@@ -40,7 +40,7 @@
 <h1 class="titulos">
     <center>Formulario</center>
 </h1>
-<form action="/Controllers/imprimir-formulario" method="POST">
+<form action="/imprimir-formulario-infraestructura" method="POST">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" oninput="verificarCaracteres(this)" placeholder="Introduce tu nombre">
     <p id="errorNombre" class="error"></p>
@@ -64,7 +64,7 @@
     <li th:text="${info}"></li>
 </ul>
 
-<script src="./js/formulario.js"></script>
+<script th:src="@{/js/formulario.js}"></script>
 
 </body>
 
