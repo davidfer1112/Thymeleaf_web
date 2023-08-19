@@ -3,6 +3,7 @@
 
 <head>
     <title>Usuarios</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/usuarios.css}">
 </head>
@@ -55,7 +56,7 @@
 <h1 class="titulos">
     <center>Formulario</center>
 </h1>
-<form action="/imprimir-formulario-usuarios" method="POST">
+<form action="/Controllers/imprimir-formulario-usuarios" method="POST">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" oninput="verificarCaracteres(this)" placeholder="Introduce tu nombre">
     <p id="errorNombre" class="error"></p>

@@ -22,8 +22,8 @@ public class MyController {
 
         persona.add(nombre);
         persona.add(apellido);
-        persona.add(edad);
         persona.add(fecha);
+        persona.add(edad);
 
         model.addAttribute("FormInfo", persona);
         return "arquitecturaGeneral";
@@ -36,8 +36,8 @@ public class MyController {
 
         persona.add(nombre);
         persona.add(apellido);
-        persona.add(edad);
         persona.add(fecha);
+        persona.add(edad);
 
         model.addAttribute("FormInfo", persona);
         return "objetivoPrincipal";
@@ -50,8 +50,8 @@ public class MyController {
 
         persona.add(nombre);
         persona.add(apellido);
-        persona.add(edad);
         persona.add(fecha);
+        persona.add(edad);
 
         model.addAttribute("FormInfo", persona);
         return "requerimientosFuncionales";
@@ -64,8 +64,8 @@ public class MyController {
 
         persona.add(nombre);
         persona.add(apellido);
-        persona.add(edad);
         persona.add(fecha);
+        persona.add(edad);
 
         model.addAttribute("FormInfo", persona);
         return "requerimientosNoFuncionales";
@@ -78,8 +78,8 @@ public class MyController {
 
         persona.add(nombre);
         persona.add(apellido);
-        persona.add(edad);
         persona.add(fecha);
+        persona.add(edad);
 
         model.addAttribute("FormInfo", persona);
         return "infraestructura";
@@ -92,11 +92,25 @@ public class MyController {
 
         persona.add(nombre);
         persona.add(apellido);
-        persona.add(edad);
         persona.add(fecha);
+        persona.add(edad);
 
         model.addAttribute("FormInfo", persona);
         return "usuarios";
+    }
+
+    @PostMapping("/imprimir-formulario-index")
+    // El nombre de los atributos está dado por el nombre que se asigna desde el HTML
+    public String imprimirDatos6(Model model, @RequestParam String nombre, String apellido, String fecha, String edad ) {
+        Collection<String> persona = new ArrayList<String>();
+
+        persona.add(nombre);
+        persona.add(apellido);
+        persona.add(fecha);
+        persona.add(edad);
+
+        model.addAttribute("FormInfo", persona);
+        return "index";
     }
 
 }

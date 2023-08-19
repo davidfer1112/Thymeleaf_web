@@ -3,6 +3,7 @@
 
 <head>
     <title>REQUERIMIENTOS NO FUNCIONALES</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/requerimientosFuncionales.css}">
 
@@ -53,7 +54,7 @@
 <h1 class="titulos">
     <center>Formulario</center>
 </h1>
-<form action="/imprimir-formulario-requerimientosNoFuncionales" method="POST">
+<form action="/Controllers/imprimir-formulario-requerimientosNoFuncionales" method="POST">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" oninput="verificarCaracteres(this)" placeholder="Introduce tu nombre">
     <p id="errorNombre" class="error"></p>
